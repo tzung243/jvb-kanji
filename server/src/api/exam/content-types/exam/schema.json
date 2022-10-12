@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exams",
+  "info": {
+    "singularName": "exam",
+    "pluralName": "exams",
+    "displayName": "Exam",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question",
+      "mappedBy": "exam"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "AVAILABLE",
+        "RANDOM"
+      ]
+    }
+  }
+}
