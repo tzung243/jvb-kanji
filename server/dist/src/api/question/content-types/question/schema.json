@@ -1,0 +1,53 @@
+{
+    "kind": "collectionType",
+    "collectionName": "questions",
+    "info": {
+        "singularName": "question",
+        "pluralName": "questions",
+        "displayName": "Question",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "topic": {
+            "type": "text",
+            "required": true,
+            "unique": true
+        },
+        "type": {
+            "type": "enumeration",
+            "enum": [
+                "N2",
+                "N3",
+                "N4",
+                "N5"
+            ],
+            "required": true
+        },
+        "answers": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::answer.answer",
+            "inversedBy": "questions"
+        },
+        "answerCorrect": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::answer.answer"
+        },
+        "exam": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::exam.exam",
+            "inversedBy": "questions"
+        },
+        "answerOfUser": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::answer.answer"
+        }
+    }
+}
