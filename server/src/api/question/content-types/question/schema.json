@@ -14,8 +14,7 @@
   "attributes": {
     "topic": {
       "type": "text",
-      "required": true,
-      "unique": true
+      "required": true
     },
     "type": {
       "type": "enumeration",
@@ -27,27 +26,38 @@
       ],
       "required": true
     },
-    "answers": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::answer.answer",
-      "inversedBy": "questions"
+    "a": {
+      "type": "string",
+      "required": true
+    },
+    "b": {
+      "type": "string",
+      "required": true
+    },
+    "c": {
+      "type": "string",
+      "required": true
+    },
+    "d": {
+      "type": "string",
+      "required": true
     },
     "answerCorrect": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::answer.answer"
+      "type": "enumeration",
+      "enum": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "required": true,
+      "private": true
     },
     "exam": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::exam.exam",
       "inversedBy": "questions"
-    },
-    "answerOfUser": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::answer.answer"
     }
   }
 }

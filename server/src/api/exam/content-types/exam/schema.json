@@ -18,12 +18,11 @@
       "target": "api::question.question",
       "mappedBy": "exam"
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "AVAILABLE",
-        "RANDOM"
-      ]
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "exams"
     }
   }
 }
