@@ -71,8 +71,9 @@ export function Register() {
         }}
       >
         <div className="w-96">
-          <p className="text-gray-700 text-5xl font-extrabold">Create</p>
-          <p className="text-gray-700 text-3xl font-extrabold">an account</p>
+          <p className="text-gray-700 text-3xl font-bold">
+            Create an account
+          </p>
         </div>
         <input
           type="text"

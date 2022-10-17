@@ -1,5 +1,6 @@
 import { Alert, AlertTitle } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import UndrawWelcome from "../Assets/UndrawWelcome.svg";
 import { Authentication } from "../Network/Authentication";
 
@@ -7,6 +8,7 @@ export function Login() {
   // Define ref
   const identifierRef = React.useRef();
   const passwordRef = React.useRef();
+  const navigate = useNavigate();
 
   const [alert, setAlert] = React.useState();
   const [executing, setExecuting] = React.useState(false);
@@ -50,6 +52,14 @@ export function Login() {
                   content: "Login success! Redirecting...",
                   severity: "success",
                 });
+                const timeOut = setTimeout(() => {
+                  setExecuting(false);
+                  navigate("/home", {
+                    preventScrollReset: true,
+                  });
+                  clearTimeout(timeOut);
+                }, 1000);
+                console.log("Redirecting...");
               },
               (error) => {
                 setAlert({
@@ -57,9 +67,10 @@ export function Login() {
                   content: error.error.message,
                   severity: "error",
                 });
+                setExecuting(false);
               },
               () => {
-                setExecuting(false);
+                // setExecuting(false);
               }
             );
           }}
