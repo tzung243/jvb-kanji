@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .kanji__topic__question {
+        @apply font-japanese
+    }
+
+    .kanji__answer__question {
+        @apply font-japanese
+    }
+
+    .kanji__topic__question__label {
+        @apply font-english
+    }
+
+    .kanji__answer__question__label {
+        @apply font-english
+    }
+
+    /* .kanji__question__container {} */
+    .kanji__form__container {
+        @apply flex flex-col space-y-3 w-96
+    }
+
+    .kanji__input__field {
+        @apply bg-rose-50 outline-none focus:ring-4 focus:ring-rose-300 rounded-md py-3 px-3.5 placeholder:text-rose-300 font-bold text-gray-700 duration-300 transition-all
+    }
+
+    .kanji__button__submit {
+        @apply text-white py-3 rounded-lg bg-rose-400 drop-shadow-md shadow-md text-base font-medium disabled:bg-gray-500 hover:ring-rose-300 hover:ring-4 duration-300 transition-all disabled:hover:ring-gray-300
+    }
+    
+    .kanji__link__form__container {
+        @apply text-rose-400 text-base font-semibold
+    }
+}
+
+@layer base {
+    * {
+        @apply font-english
+    }
+
+    a {
+        @apply text-blue-500
+    }
+}

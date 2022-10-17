@@ -2,33 +2,47 @@ import axios from "axios";
 import { getApiUrl } from "../Utils/Config/getApiUrl";
 
 const AUTHENTICATION_STORAGE_KEY = {
-  JWT_TOKEN: "jvb.jwt_token",
+  JWT_TOKEN: "jwt_token",
 };
 
 export const Authentication = {
-  callback(response, resolve) {
-    const json = JSON.parse(response.data);
-    /**
-     * @type {{jwt: string, user: User}}
-     */
-    const { jwt, user } = json;
-    // Save JWT
-    localStorage.setItem(AUTHENTICATION_STORAGE_KEY, jwt);
-    resolve(user);
-  },
   /**
    * Login local with identify & password
    * @param {{identify: string, password: string}} certificate
    */
-  async loginWithIdentify({ identifier, password }) {
-    return new Promise((resolve, reject) => {
-      axios
-        .post(`${getApiUrl()}/api/auth/`)
-        .then((response) => this.callback(response, resolve))
-        .catch((error) => {
-          reject(error);
+  async loginWithIdentify(
+    { identifier, password },
+    success,
+    failure,
+    completed
+  ) {
+    return window
+      .fetch(`${getApiUrl()}/api/auth/local`, {
+        method: "POST",
+        body: JSON.stringify({ identifier, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        response.json().then((json) => {
+          if (response.ok) {
+            /**
+             * @type {{user: User}}
+             */
+            const { jwt, user } = json;
+            // Save JWT
+            window.localStorage.setItem(
+              AUTHENTICATION_STORAGE_KEY.JWT_TOKEN,
+              jwt
+            );
+            success(user);
+          } else {
+            failure(json);
+          }
+          completed();
         });
-    });
+      });
   },
 
   /**
@@ -37,7 +51,7 @@ export const Authentication = {
    * @param {() => void} callback
    */
   signOut(callback) {
-    localStorage.removeItem(AUTHENTICATION_STORAGE_KEY);
+    window.localStorage.removeItem(AUTHENTICATION_STORAGE_KEY.JWT_TOKEN);
     callback();
   },
 
@@ -45,26 +59,42 @@ export const Authentication = {
    * Sign up with username (Example: tzung2403), password, email
    * @param {{username: string, password: string, email: string}} certificate
    */
-  async signUpWithCertificate({ username, password, email }) {
+  async signUpWithCertificate(
+    { username, password, email },
+    success,
+    failure,
+    completed
+  ) {
     /**
      *
      */
-    return new Promise((resolve, reject) => {
-      axios
-        .post(`${getApiUrl()}/api/auth/local/register`, {
-          username,
-          password,
-          email,
-        })
-        .then((response) => this.callback(response, resolve))
-        .catch((error) => {
-          reject(error);
+    return window
+      .fetch(`${getApiUrl()}/api/auth/local/register`, {
+        method: "POST",
+        body: JSON.stringify({ username, password, email }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        response.json().then((json) => {
+          if (response.ok) {
+            /**
+             * @type {{user: User}}
+             */
+            const { user } = json;
+            success(user);
+          } else {
+            failure(json);
+          }
+          completed();
         });
-    });
+      });
   },
   async isLogin() {
     return new Promise((resolve, reject) => {
       this.getAccessToken()
+        .catch((error) => reject(error))
         .then((accessToken) => {
           axios
             .get(`${getApiUrl()}/api/users/me`, {
@@ -79,18 +109,13 @@ export const Authentication = {
             .catch((error) => {
               reject(error);
             });
-        })
-        .catch((error) => reject(error));
+        });
     });
   },
   /**
-   * @returns {Promise}
+   * @returns {string}
    */
-  async getAccessToken() {
-    return new Promise((resolve, reject) => {
-      const jwt = localStorage.getItem(AUTHENTICATION_STORAGE_KEY);
-      if (jwt) resolve(jwt);
-      reject(Error("Not found JWT!"));
-    });
+  getAccessToken() {
+    return window.localStorage.getItem(AUTHENTICATION_STORAGE_KEY.JWT_TOKEN);
   },
 };

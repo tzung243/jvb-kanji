@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Exam } from "../Exam";
 import { Home } from "../Home";
 import { Login } from "../Login";
+import { RecoveryPassword } from "../RecoveryPassword";
 import { Register } from "../Register";
 
 export function AppRoutes() {
@@ -12,6 +13,7 @@ export function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/exam" element={<Exam />} />
+      <Route path="/recovery-password" element={<RecoveryPassword />} />
     </Routes>
   );
 }
