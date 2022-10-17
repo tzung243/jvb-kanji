@@ -1,5 +1,5 @@
 import React from "react";
 
-export function Exam() {
+export function ExamManager() {
   return <div>Exam</div>;
 }

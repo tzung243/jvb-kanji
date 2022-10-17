@@ -1,4 +1,3 @@
-import axios from "axios";
 import { getApiUrl } from "../Utils/Config/getApiUrl";
 
 const AUTHENTICATION_STORAGE_KEY = {
@@ -91,25 +90,12 @@ export const Authentication = {
         });
       });
   },
-  async isLogin() {
-    return new Promise((resolve, reject) => {
-      this.getAccessToken()
-        .catch((error) => reject(error))
-        .then((accessToken) => {
-          axios
-            .get(`${getApiUrl()}/api/users/me`, {
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-              },
-            })
-            .then((response) => {
-              const json = JSON.parse(response.data);
-              resolve(json);
-            })
-            .catch((error) => {
-              reject(error);
-            });
-        });
+  async refreshStateUser(accessToken) {
+    return window.fetch(`${getApiUrl()}/api/users/me`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      method: "POST",
     });
   },
   /**

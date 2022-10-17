@@ -1,5 +1,5 @@
 import React from "react";
 
 export const NotFound = () => {
-  return <React.Fragment></React.Fragment>;
+  return <React.Fragment>404</React.Fragment>;
 };
