@@ -1,9 +1,6 @@
 /**
  * @return {string}
  */
-export const getApiUrl = (environment = "production") => {
-  // if (environment === "production") {
-  //   return "https://jvb-kanji-server.herokuapp.com"
-  // }     
-  return "https://jvb-kanji-server.herokuapp.com";
+export const getApiUrl = () => {
+  return process.env.REACT_APP_API_URL ?? "http://localhost:1337";
 };

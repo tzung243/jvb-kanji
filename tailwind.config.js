@@ -7,6 +7,9 @@ module.exports = {
         japanese: ["Noto Sans JP", "sans-serif"],
         english: ["Roboto", "sans-serif"],
       },
+      spacing: {
+        
+      }
     },
   },
   plugins: [],
