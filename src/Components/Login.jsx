@@ -54,7 +54,7 @@ export function Login() {
                 });
                 const timeOut = setTimeout(() => {
                   setExecuting(false);
-                  navigate("/home", {
+                  navigate("/", {
                     preventScrollReset: true,
                   });
                   clearTimeout(timeOut);

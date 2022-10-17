@@ -95,7 +95,7 @@ export const Authentication = {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-      method: "POST",
+      method: "GET",
     });
   },
   /**

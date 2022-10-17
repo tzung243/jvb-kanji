@@ -4,30 +4,20 @@ import { Authentication } from "../Network/Authentication";
 export const authenticationSlice = createSlice({
   name: "authentication",
   initialState: {
-    user: undefined,
+    user: null,
   },
   reducers: {
-    refreshStateUser(state) {
-      const accessToken = Authentication.getAccessToken();
-      Authentication.refreshStateUser(accessToken).then((response) => {
-        if (response.ok) {
-          response.json().then((user) => {
-            state.user = user;
-          });
-        } else {
-          state.user = undefined;
-        }
-      });
+    setUser(state, action) {
+      state.user = action.payload;
     },
     signOut(state) {
       Authentication.signOut(() => {
-        state.user = undefined;
+        state.user = null;
       });
     },
   },
-
 });
 
-export const { refreshStateUser, signOut } = authenticationSlice.actions;
+export const { setUser, signOut } = authenticationSlice.actions;
 
 export const authenticationReducer = authenticationSlice.reducer;
