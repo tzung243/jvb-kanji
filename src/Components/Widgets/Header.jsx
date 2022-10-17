@@ -36,7 +36,7 @@ export function Header() {
               return (
                 <a
                   href="/login"
-                  className="px-8 py-3 bg-rose-500 rounded-md text-white font-bold text-base hover:ring-4 hover:ring-rose-300 focus:ring-rose-300 focus:right-4 drop-shadow-sm shadow-sm duration-300 transition-all"
+                  className="px-8 py-3 bg-rose-400 rounded-md text-white font-bold text-base hover:ring-4 hover:ring-rose-300 focus:ring-rose-300 focus:right-4 drop-shadow-sm shadow-sm duration-300 transition-all"
                 >
                   Login
                 </a>
@@ -91,6 +91,14 @@ export function Header() {
                       >
                         Exam manager
                       </a>
+                      <span
+                        className="w-full text-start px-4 py-2 text-gray-500 text-sm font-semibold hover:bg-rose-50 duration-300 transition-all"
+                        onClick={(event) => {
+                          dispatch(signOut());
+                        }}
+                      >
+                        Sign out
+                      </span>
                     </div>
                   </button>
                 </React.Fragment>
