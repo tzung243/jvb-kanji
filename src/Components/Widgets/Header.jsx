@@ -29,7 +29,7 @@ export function Header() {
   }, [dispatch]);
 
   return (
-    <header className="sticky top-0 right-0 left-0 w-full h-16 bg-rose-100 flex justify-center items-center">
+    <header className="z-50 sticky top-0 right-0 left-0 w-full h-16 bg-rose-100 flex justify-center items-center">
       <main className="lg:w-lg w-full justify-between flex flex-row px-4">
         <div></div>
         <nav className="flex flex-row justify-center items-center">
