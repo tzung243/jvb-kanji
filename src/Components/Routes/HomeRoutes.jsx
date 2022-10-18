@@ -6,6 +6,7 @@ import { Header } from "../Widgets/Header";
 import { Home } from "../Home";
 import { ExamTesting } from "../ExamTesting";
 import { NotFound } from "../404";
+import { Footer } from "../Widgets/Footer";
 
 export function HomeRoutes() {
   return (
@@ -18,6 +19,7 @@ export function HomeRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </React.Fragment>
   );
 }

@@ -1,12 +1,14 @@
 import md5 from "md5";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Authentication } from "../../Network/Authentication";
 import { setUser, signOut } from "../../Redux/AuthenticationSlice";
 
 export function Header() {
   const user = useSelector((state) => state.authentication.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [dropdownAvatarMenuOpen, setDropdownAvatarMenuOpen] =
     React.useState(false);
@@ -30,7 +32,10 @@ export function Header() {
     <header className="sticky top-0 right-0 left-0 w-full h-16 bg-rose-100 flex justify-center items-center">
       <main className="lg:w-lg w-full justify-between flex flex-row px-4">
         <div></div>
-        <nav>
+        <nav className="flex flex-row justify-center items-center">
+          <a href="/" className="px-4">
+            <i className="fa-solid fa-house text-rose-400 text-xl"></i>
+          </a>
           {(() => {
             if (!user) {
               return (
@@ -68,33 +73,24 @@ export function Header() {
                     <div
                       className={`absolute top-12 right-0 bg-white shadow-md rounded-md w-64 duration-300 transition-all ${
                         dropdownAvatarMenuOpen ? "flex flex-col" : "hidden"
-                      }`}
+                      } py-2`}
                     >
-                      <a
-                        href="/"
+                      <span
+                        onClick={() => {
+                          navigate("/edit-profile");
+                        }}
                         className="w-full border-b border-rose-300 text-start px-4 py-2 block hover:bg-rose-50 duration-300 transition-all"
                       >
                         <p className="text-gray-700 text-base font-semibold">
                           {user.name ?? "Guest"}
                         </p>
                         <p className="text-rose-300 text-sm font-semibold">{`@${user.username}`}</p>
-                      </a>
-                      <a
-                        href="/"
-                        className="w-full text-start px-4 py-2 block text-gray-500 text-sm font-semibold hover:bg-rose-50 duration-300 transition-all"
-                      >
-                        Edit profile
-                      </a>
-                      <a
-                        href="/exam"
-                        className="w-full text-start px-4 py-2 block text-gray-500 text-sm font-semibold hover:bg-rose-50 duration-300 transition-all"
-                      >
-                        Exam manager
-                      </a>
+                      </span>
                       <span
                         className="w-full text-start px-4 py-2 text-gray-500 text-sm font-semibold hover:bg-rose-50 duration-300 transition-all"
                         onClick={(event) => {
                           dispatch(signOut());
+                          navigate("/login");
                         }}
                       >
                         Sign out

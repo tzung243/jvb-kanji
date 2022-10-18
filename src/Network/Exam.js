@@ -16,4 +16,13 @@ export const Exam = {
       }),
     });
   },
+
+  async getAllExamOfUser() {
+    return window.fetch(`${getApiUrl()}/api/exam/all`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${Authentication.getAccessToken()}`,
+      },
+    });
+  },
 };
