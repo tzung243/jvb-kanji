@@ -7,7 +7,7 @@ import { Exam } from "../Network/Exam";
 import { Alert, AlertTitle } from "@mui/material";
 
 export function QuickStartExam() {
-    const [type, setType] = React.useState("N2");
+  const [type, setType] = React.useState("N2");
   const user = useSelector((state) => state.authentication.user);
   const navigate = useNavigate();
   const [executing, setExecuting] = React.useState(false);
@@ -37,9 +37,12 @@ export function QuickStartExam() {
                     });
                     const timeOut = setTimeout(() => {
                       setExecuting(false);
-                      navigate(`/exam/${json.data.id}`, {
-                        preventScrollReset: true,
-                      });
+                      navigate(
+                        `/exam/${json.data.id}/${json.data.questions[0].id}`,
+                        {
+                          preventScrollReset: true,
+                        }
+                      );
                       clearTimeout(timeOut);
                     }, 1000);
                     console.log("Redirecting...");
@@ -134,5 +137,5 @@ export function QuickStartExam() {
         </form>
       </main>
     </section>
-  )
+  );
 }

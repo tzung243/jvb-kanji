@@ -25,4 +25,22 @@ export const Exam = {
       },
     });
   },
+
+  async getInfoExam(examId) {
+    return window.fetch(`${getApiUrl()}/api/exam/${examId}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${Authentication.getAccessToken()}`,
+      },
+    });
+  },
+
+  async getQuestion({ examId, questionId }) {
+    return window.fetch(`${getApiUrl()}/api/exam/${examId}/${questionId}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${Authentication.getAccessToken()}`,
+      },
+    });
+  },
 };
