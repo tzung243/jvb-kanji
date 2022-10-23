@@ -33,18 +33,25 @@ export function Header() {
       <main className="lg:w-lg w-full justify-between flex flex-row px-4">
         <div></div>
         <nav className="flex flex-row justify-center items-center">
-          <a href="/" className="px-4">
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+            className="px-4"
+          >
             <i className="fa-solid fa-house text-rose-400 text-xl"></i>
-          </a>
+          </button>
           {(() => {
             if (!user) {
               return (
-                <a
-                  href="/login"
+                <button
+                  onClick={() => {
+                    navigate("/login");
+                  }}
                   className="px-8 py-3 bg-rose-400 rounded-md text-white font-bold text-base hover:ring-4 hover:ring-rose-300 focus:ring-rose-300 focus:right-4 drop-shadow-sm shadow-sm duration-300 transition-all"
                 >
                   Login
-                </a>
+                </button>
               );
             } else {
               return (
@@ -91,7 +98,7 @@ export function Header() {
                       </span>
                       <span
                         className="w-full text-start px-4 py-2 text-gray-500 text-sm font-semibold hover:bg-rose-50 duration-300 transition-all"
-                        onClick={(event) => {
+                        onClick={() => {
                           dispatch(signOut());
                           navigate("/login");
                         }}

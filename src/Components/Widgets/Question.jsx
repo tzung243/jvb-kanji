@@ -32,6 +32,7 @@ export function Question({ question, answer }) {
       }}
       onSubmit={(event) => {
         event.preventDefault();
+        
       }}
     >
       <p className="text-3xl font-bold text-gray-500">{question.topic}</p>

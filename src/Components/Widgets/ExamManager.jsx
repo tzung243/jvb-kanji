@@ -3,10 +3,12 @@ import UndrawStripPayments from "../../Assets/UndrawStripPayments.svg";
 import { Authentication } from "../../Network/Authentication";
 import { getApiUrl } from "../../Utils/Config/getApiUrl";
 import UndrawEmptyStreet from "../../Assets/UndrawEmptyStreet.svg";
+import { useNavigate } from "react-router-dom";
 
 export function ExamManager() {
   const [exams, setExams] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     window
@@ -38,14 +40,16 @@ export function ExamManager() {
               return (
                 <div className="flex flex-col space-y-4">
                   {/* Go to exam manager */}
-                  <a
-                    href="/exam"
+                  <button
+                    onClick={() => {
+                      navigate("/exam");
+                    }}
                     className="w-96 bg-rose-400 rounded-md shadow-sm drop-shadow-sm py-4 flex justify-center items-center hover:ring-rose-300 hover:ring-4 duration-300 transition-all"
                   >
                     <p className="font-bold text-white">
                       Go to manager <i className="fa-solid fa-arrow-right"></i>
                     </p>
-                  </a>
+                  </button>
                   {(() => {
                     if (!exams || exams.length === 0) {
                       return (
@@ -85,12 +89,14 @@ export function ExamManager() {
                         </div>
                         <div className="flex flex-row justify-between pt-2 items-center">
                           <p className="font-bold text-gray-400">{exam.type}</p>
-                          <a
-                            href={`/exam/detail/${exam.id}`}
+                          <button
+                            onClick={() => {
+                              navigate(`/exam/detail/${exam.id}`);
+                            }}
                             className="bg-rose-400 text-white w-8 h-8 rounded-md flex justify-center items-center drop-shadow-sm shadow-sm duration-300 transition-all hover:ring-rose-300 hover:ring-4"
                           >
                             <i className="fa-solid fa-arrow-right"></i>
-                          </a>
+                          </button>
                         </div>
                       </div>
                     );

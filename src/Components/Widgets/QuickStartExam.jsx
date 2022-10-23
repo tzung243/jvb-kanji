@@ -24,6 +24,7 @@ export function QuickStartExam() {
           onSubmit={(event) => {
             event.preventDefault();
             if (user) {
+              setExecuting(true)
               Exam.generate({
                 length: 40,
                 quickstart: true,
