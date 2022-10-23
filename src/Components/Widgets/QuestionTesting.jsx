@@ -32,7 +32,7 @@ export function QuestionTesting() {
       {(() => {
         if (loading) {
           return (
-            <div className="w-[640px] flex justify-center items-start">
+            <div className="w-[640px] my-32 flex justify-center items-start">
               <svg
                 aria-hidden="true"
                 className="w-12 h-12 text-gray-200 animate-spin dark:text-rose-200 fill-rose-400"
