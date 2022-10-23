@@ -48,7 +48,6 @@ export function ExamTesting() {
                         fill="currentFill"
                       ></path>
                     </svg>
-                    <span className="sr-only">Loading...</span>
                   </div>
                 </React.Fragment>
               );
