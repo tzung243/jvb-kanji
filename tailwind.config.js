@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        japanese: ["Noto Sans JP", "sans-serif"],
-        english: ["Roboto", "sans-serif"],
+        noto: ["Noto Sans JP", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
       spacing: {
         sm: "640px",

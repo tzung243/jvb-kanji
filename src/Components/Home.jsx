@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { ExamManager } from "./ExamManager";
-import { QuickStartExam } from "./QuickStartExam";
+import { ExamManager } from "./Widgets/ExamManager";
+import { QuickStartExam } from "./Widgets/QuickStartExam";
 
 export function Home() {
   const user = useSelector((state) => state.authentication.user);

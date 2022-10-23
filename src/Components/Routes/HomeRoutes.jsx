@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { ExamManager } from "../ExamManager";
+import { ExamManager } from "../Widgets/ExamManager";
 import { Header } from "../Widgets/Header";
 import { Home } from "../Home";
 import { ExamTesting } from "../ExamTesting";

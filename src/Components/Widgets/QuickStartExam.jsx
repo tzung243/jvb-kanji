@@ -1,10 +1,11 @@
 import React from "react";
-import UndrawReadingTime from "../Assets/UndrawReadingTime.svg";
-import { HomeTypeExamCard } from "./Widgets/HomeTypeExamCard";
+import UndrawReadingTime from "../../Assets/UndrawReadingTime.svg";
+import { HomeTypeExamCard } from "./HomeTypeExamCard";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Exam } from "../Network/Exam";
+import { Exam } from "../../Network/Exam";
 import { Alert, AlertTitle } from "@mui/material";
+import styles from "./QuickStartExam.module.css";
 
 export function QuickStartExam() {
   const [type, setType] = React.useState("N2");
@@ -24,7 +25,7 @@ export function QuickStartExam() {
             event.preventDefault();
             if (user) {
               Exam.generate({
-                length: 10,
+                length: 40,
                 quickstart: true,
                 type,
               }).then((response) => {
@@ -123,13 +124,13 @@ export function QuickStartExam() {
                 type="radio"
                 value={"N5"}
                 name="type"
-                className="accent-green-600 w-5 h-5 duration-300 transition-all"
+                className="accent-green-600 w-5 h-5 duration-300 transition-all disabled:accent-gray-500"
               />
             </div>
           </div>
           <button
             type="submit"
-            className="my-4 px-10 py-3 kanji__button__submit"
+            className={styles["button--quickstart"]}
             disabled={executing}
           >
             Start now <i className="fa-solid fa-arrow-right"></i>

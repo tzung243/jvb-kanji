@@ -4,22 +4,21 @@
 
 @layer components {
     .kanji__topic__question {
-        @apply font-japanese
+        @apply font-noto
     }
 
     .kanji__answer__question {
-        @apply font-japanese
+        @apply font-noto
     }
 
     .kanji__topic__question__label {
-        @apply font-english
+        @apply font-roboto
     }
 
     .kanji__answer__question__label {
-        @apply font-english
+        @apply font-roboto
     }
 
-    /* .kanji__question__container {} */
     .kanji__form__container {
         @apply flex flex-col space-y-3 w-96
     }
@@ -39,7 +38,7 @@
 
 @layer base {
     * {
-        @apply font-english
+        @apply font-roboto
     }
 
     a {
