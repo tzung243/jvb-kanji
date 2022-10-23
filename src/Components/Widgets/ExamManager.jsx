@@ -86,7 +86,7 @@ export function ExamManager() {
                         <div className="flex flex-row justify-between pt-2 items-center">
                           <p className="font-bold text-gray-400">{exam.type}</p>
                           <a
-                            href={`/exam/${exam.id}`}
+                            href={`/exam/detail/${exam.id}`}
                             className="bg-rose-400 text-white w-8 h-8 rounded-md flex justify-center items-center drop-shadow-sm shadow-sm duration-300 transition-all hover:ring-rose-300 hover:ring-4"
                           >
                             <i className="fa-solid fa-arrow-right"></i>

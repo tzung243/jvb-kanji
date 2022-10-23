@@ -39,7 +39,7 @@ export function QuickStartExam() {
                     const timeOut = setTimeout(() => {
                       setExecuting(false);
                       navigate(
-                        `/exam/${json.data.id}/${json.data.questions[0].id}`,
+                        `/exam/testing/${json.data.id}/${json.data.questions[0].id}`,
                         {
                           preventScrollReset: true,
                         }

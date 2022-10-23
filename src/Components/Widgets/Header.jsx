@@ -57,6 +57,9 @@ export function Header() {
                     onBlur={() => {
                       setDropdownAvatarMenuOpen(false);
                     }}
+                    // onFocus={() => {
+                    //   setDropdownAvatarMenuOpen(true);
+                    // }}
                   >
                     <img
                       alt="Avatar"
