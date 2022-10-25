@@ -3,7 +3,7 @@ import React from "react";
 
 export default function QuestionCompleted({ answerOfUser, index }) {
   return (
-    <div className="w-full shadow-sm drop-shadow-sm p-2 hover:ring-4 hover:ring-rose-300 rounded-sm duration-300 transition-all flex flex-col justify-between">
+    <div className="w-full shadow-sm drop-shadow-sm p-2 border-gray-200 border-2 hover:border-rose-300 hover:ring-2 hover:ring-rose-300 rounded-sm duration-300 transition-all flex flex-col justify-between">
       <div className="w-full flex flex-col space-y-1">
         <p className="text-gray-500 font-bold text-xl">{`${index + 1}. ${
           answerOfUser.question.topic
@@ -61,7 +61,7 @@ export default function QuestionCompleted({ answerOfUser, index }) {
           }`}
         >{`D. ${answerOfUser.question.d}`}</p>
       </div>
-      <p className="text-gray-500 text-base font-semibold">{`Result: ${answerOfUser.question.answerCorrect}`}</p>
+      <p className="text-gray-500 text-base font-semibold py-2">{`Result: ${answerOfUser.question.answerCorrect}`}</p>
     </div>
   );
 }

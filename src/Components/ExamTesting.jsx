@@ -23,7 +23,7 @@ export function ExamTesting() {
   return (
     <React.Fragment>
       <section className="w-full flex justify-center items-center">
-        <main className="lg:w-lg w-full flex flex-col justify-center items-center m-4">
+        <main className="lg:w-lg w-full flex flex-col justify-center items-center m-4 py-4">
           {(() => {
             if (loading) {
               return (

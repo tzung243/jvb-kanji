@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import UndrawStripPayments from "../../Assets/UndrawStripPayments.svg";
 import { Authentication } from "../../Network/Authentication";
@@ -91,11 +92,37 @@ export function ExamManager() {
                           <p className="font-bold text-gray-400">{exam.type}</p>
                           <button
                             onClick={() => {
-                              navigate(`/exam/detail/${exam.id}`);
+                              if (exam.status === "IN_PROGRESS") {
+                                let index = 0;
+                                for (
+                                  let counter = 0;
+                                  counter < exam.questions.length;
+                                  counter++
+                                ) {
+                                  const answerOfUser = exam.questions[counter];
+                                  if (!answerOfUser.answer) {
+                                    index = counter;
+                                    break;
+                                  }
+                                }
+                                navigate(
+                                  `/exam/testing/${exam.id}/${exam.questions[index].id}`
+                                );
+                              } else if (exam.status === "DONE") {
+                                navigate(`/exam/result/${exam.id}`);
+                              } else {
+                              }
                             }}
                             className="bg-rose-400 text-white w-8 h-8 rounded-md flex justify-center items-center drop-shadow-sm shadow-sm duration-300 transition-all hover:ring-rose-300 hover:ring-4"
                           >
-                            <i className="fa-solid fa-arrow-right"></i>
+                            {(() => {
+                              if (exam.status == "DRAFT") {
+                                return <i className="fa-regular fa-play"></i>;
+                              }
+                              return (
+                                <i className="fa-solid fa-arrow-right"></i>
+                              );
+                            })()}
                           </button>
                         </div>
                       </div>

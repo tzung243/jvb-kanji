@@ -21,7 +21,7 @@ export const ExamResult = () => {
   }, [examId]);
   return (
     <section className="w-full flex justify-center">
-      <main className="lg:w-lg w-full flex flex-col justify-center items-center my-8 space-y-6">
+      <main className="lg:w-lg w-full flex flex-col justify-center items-center my-8 space-y-6 p-4">
         {(() => {
           if (loading) {
             return (
