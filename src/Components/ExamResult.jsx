@@ -1,11 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Exam } from "../Network/Exam";
+import QuestionCompleted from "./Widgets/QuestionCompleted";
 
 export const ExamResult = () => {
   const { examId } = useParams();
   const [exam, setExam] = React.useState();
   const [loading, setLoading] = React.useState(true);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     Exam.getInfoExam(examId).then((response) => {
@@ -19,7 +21,7 @@ export const ExamResult = () => {
   }, [examId]);
   return (
     <section className="w-full flex justify-center">
-      <main className="lg:w-lg w-full flex flex-col justify-center items-center my-4 space-y-2">
+      <main className="lg:w-lg w-full flex flex-col justify-center items-center my-8 space-y-6">
         {(() => {
           if (loading) {
             return (
@@ -50,16 +52,29 @@ export const ExamResult = () => {
           }
           return (
             <React.Fragment>
-              <p className="text-white bg-rose-400 px-8 py-4 rounded-md font-bold text-2xl shadow-md drop-shadow-md hover:ring-4 hover:ring-rose-300 duration-300 transition-all shadow-rose-400">
+              <p className="text-gray-700 text-7xl font-extrabold">
                 {`${exam.score}/100`}
               </p>
-              {exam.questions.map((question, index) => {
-                return (
-                  <React.Fragment key={index}>
-                    {JSON.stringify(question)}
-                  </React.Fragment>
-                );
-              })}
+              <div className="grid grid-cols-2 gap-x-2 gap-y-4 w-full">
+                {exam.questions.map((answerOfUser, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <QuestionCompleted
+                        answerOfUser={answerOfUser}
+                        index={index}
+                      />
+                    </React.Fragment>
+                  );
+                })}
+              </div>
+              <button
+                className="px-8 py-4 bg-rose-400 text-white rounded-md font-bold text-xl shadow-md drop-shadow-md hover:ring-4 hover:ring-rose-300 duration-300 transition-all"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Go To Home <i className="fa-solid fa-arrow-right"></i>
+              </button>
             </React.Fragment>
           );
         })()}
