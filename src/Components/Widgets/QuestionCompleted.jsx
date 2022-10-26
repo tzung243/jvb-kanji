@@ -4,7 +4,7 @@ import React from "react";
 export default function QuestionCompleted({ answerOfUser, index }) {
   return (
     <div className="w-full shadow-sm drop-shadow-sm p-2 border-gray-200 border-2 hover:border-rose-300 hover:ring-2 hover:ring-rose-300 rounded-sm duration-300 transition-all flex flex-col justify-between">
-      <div className="w-full flex flex-col space-y-1">
+      <div className="w-full flex flex-col space-y-2">
         <p className="text-gray-500 font-bold text-xl">{`${index + 1}. ${
           answerOfUser.question.topic
         }`}</p>
@@ -14,7 +14,9 @@ export default function QuestionCompleted({ answerOfUser, index }) {
               ? answerOfUser.answer == "A"
                 ? answerOfUser.question.answerCorrect == answerOfUser.answer
                   ? "text-white bg-green-400 hover:ring-4 hover:ring-green-300"
-                  : "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
+                  : "text-white bg-gray-400 hover:ring-4 hover:ring-gray-300"
+                : answerOfUser.question.answerCorrect == "A"
+                ? "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
                 : "text-gray-300"
               : answerOfUser.question.answerCorrect == "A"
               ? "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
@@ -27,7 +29,9 @@ export default function QuestionCompleted({ answerOfUser, index }) {
               ? answerOfUser.answer == "B"
                 ? answerOfUser.question.answerCorrect == answerOfUser.answer
                   ? "text-white bg-green-400 hover:ring-4 hover:ring-green-300"
-                  : "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
+                  : "text-white bg-gray-400 hover:ring-4 hover:ring-gray-300"
+                : answerOfUser.question.answerCorrect == "B"
+                ? "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
                 : "text-gray-300"
               : answerOfUser.question.answerCorrect == "B"
               ? "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
@@ -40,7 +44,9 @@ export default function QuestionCompleted({ answerOfUser, index }) {
               ? answerOfUser.answer == "C"
                 ? answerOfUser.question.answerCorrect == answerOfUser.answer
                   ? "text-white bg-green-400 hover:ring-4 hover:ring-green-300"
-                  : "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
+                  : "text-white bg-gray-400 hover:ring-4 hover:ring-gray-300"
+                : answerOfUser.question.answerCorrect == "C"
+                ? "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
                 : "text-gray-300"
               : answerOfUser.question.answerCorrect == "C"
               ? "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
@@ -53,7 +59,9 @@ export default function QuestionCompleted({ answerOfUser, index }) {
               ? answerOfUser.answer == "D"
                 ? answerOfUser.question.answerCorrect == answerOfUser.answer
                   ? "text-white bg-green-400 hover:ring-4 hover:ring-green-300"
-                  : "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
+                  : "text-white bg-gray-400 hover:ring-4 hover:ring-gray-300"
+                : answerOfUser.question.answerCorrect == "D"
+                ? "text-white bg-red-400 hover:ring-4 hover:ring-red-300"
                 : "text-gray-300"
               : answerOfUser.question.answerCorrect == "D"
               ? "text-white bg-red-400 hover:ring-4 hover:ring-red-300"

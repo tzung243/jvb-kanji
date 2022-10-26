@@ -7,6 +7,7 @@ import { Footer } from "../Widgets/Footer";
 import { ExamRoutes } from "./ExamRoutes";
 import { ExamManager } from "../ExamManager";
 import { EditProfile } from "../EditProfile";
+import { Vocabulary } from "../Vocabulary";
 
 export function HomeRoutes() {
   return (
@@ -17,6 +18,7 @@ export function HomeRoutes() {
         <Route path="/exam/*" element={<ExamRoutes />} />
         <Route path="/" element={<Home />} />
         <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/vocabulary" element={<Vocabulary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

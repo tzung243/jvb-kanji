@@ -111,6 +111,7 @@ export function ExamManager() {
                               } else if (exam.status === "DONE") {
                                 navigate(`/exam/result/${exam.id}`);
                               } else {
+                                
                               }
                             }}
                             className="bg-rose-400 text-white w-8 h-8 rounded-md flex justify-center items-center drop-shadow-sm shadow-sm duration-300 transition-all hover:ring-rose-300 hover:ring-4"

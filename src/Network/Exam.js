@@ -43,4 +43,17 @@ export const Exam = {
       },
     });
   },
+
+  async start({ examId }) {
+    return window.fetch(`${getApiUrl()}/api/exam/start`, {
+      method: "POST",
+      body: JSON.stringify({
+        examId,
+      }),
+      headers: {
+        Authorization: `Bearer ${Authentication.getAccessToken()}`,
+        "Content-Type": "application/json",
+      },
+    });
+  },
 };
