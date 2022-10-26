@@ -11,6 +11,7 @@ import UndrawSmallTown from "../Assets/UndrawSmallTown.svg";
 export const ExamManager = (props) => {
   // const user = useSelector((state) => state.authentication.user);
 
+  // eslint-disable-next-line no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [exams, setExams] = React.useState([]);
