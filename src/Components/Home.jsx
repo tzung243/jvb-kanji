@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { BlogInHome } from "./Widgets/BlogInHome";
 import { ExamManager } from "./Widgets/ExamManager";
 import { QuickStartExam } from "./Widgets/QuickStartExam";
 
@@ -18,6 +19,7 @@ export function Home() {
           return <ExamManager />;
         }
       })()}
+      <BlogInHome />
     </React.Fragment>
   );
 }

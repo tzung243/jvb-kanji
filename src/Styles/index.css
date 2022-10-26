@@ -35,13 +35,3 @@
         @apply text-rose-400 text-base font-semibold
     }
 }
-
-@layer base {
-    * {
-        @apply font-roboto
-    }
-
-    a {
-        @apply text-blue-500
-    }
-}
