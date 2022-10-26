@@ -29,9 +29,9 @@ export function Footer() {
                 <p className="text-base font-semibold">Email</p>
                 <a
                   className="text-sm font-light"
-                  href="mailto:hamic@hus.edu.vn"
+                  href="mailto:chipchip.hamic@gmail.com"
                 >
-                  CLB HAMIC
+                  Chip Chip 
                 </a>
               </div>
             </div>
@@ -42,7 +42,7 @@ export function Footer() {
               <div className="flex flex-col justify-start items-start">
                 <p className="text-base font-semibold">Phone Number</p>
                 <p className="text-sm font-light">
-                  Ngô Phương Trang +8498 7292624
+                  +8412 3346789
                 </p>
               </div>
             </div>
