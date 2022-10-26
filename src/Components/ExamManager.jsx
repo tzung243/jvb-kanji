@@ -6,6 +6,7 @@ import { getApiUrl } from "../Utils/Config/getApiUrl";
 // import { useSelector } from "react-redux";
 import UndrawEmptyStreet from "../Assets/UndrawEmptyStreet.svg";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import UndrawSmallTown from "../Assets/UndrawSmallTown.svg";
 
 export const ExamManager = (props) => {
   // const user = useSelector((state) => state.authentication.user);
@@ -86,6 +87,7 @@ export const ExamManager = (props) => {
               }
               return (
                 <React.Fragment>
+                  <img src={UndrawSmallTown} alt="" className="w-96" />
                   <div className="w-full flex flex-col space-y-12 justify-center items-center">
                     <div className="w-full grid grid-cols-2 gap-2">
                       {exams

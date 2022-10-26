@@ -69,14 +69,21 @@ export function ExamManager() {
                     return (
                       <div
                         key={exam.id}
-                        className="w-96 bg-white rounded-md shadow-md drop-shadow-md p-5 hover:ring-rose-300 hover:ring-4 duration-300 transition-all"
+                        className="bg-white rounded-md shadow-md drop-shadow-md p-5 hover:ring-rose-300 hover:ring-4 duration-300 transition-all"
                       >
                         <div className="flex flex-row justify-between items-center border-b border-rose-300 pb-4">
-                          <p className="text-xl font-bold text-gray-600">
-                            {`${index + 1}. ${
-                              exam.label ?? `KANJI-${exam.id}`
-                            }`}
-                          </p>
+                          <div className="flex flex-row justify-center items-center space-x-2">
+                            <p className="text-xl font-bold text-gray-600">
+                              {`${index + 1}. ${
+                                exam.label ?? `KANJI-${exam.id}`
+                              }`}
+                            </p>
+                            {exam.status == "DONE" ? (
+                              <p className="py-1 px-2 text-white bg-rose-400 rounded-md font-bold">{`${exam.score}/100`}</p>
+                            ) : (
+                              <React.Fragment></React.Fragment>
+                            )}
+                          </div>
                           <p className="text-white px-3 py-1 rounded-md shadow-sm drop-shadow-sm bg-rose-300 text-base font-bold">
                             {(() => {
                               if (exam.status === "IN_PROGRESS") {
@@ -111,7 +118,6 @@ export function ExamManager() {
                               } else if (exam.status === "DONE") {
                                 navigate(`/exam/result/${exam.id}`);
                               } else {
-                                
                               }
                             }}
                             className="bg-rose-400 text-white w-8 h-8 rounded-md flex justify-center items-center drop-shadow-sm shadow-sm duration-300 transition-all hover:ring-rose-300 hover:ring-4"
