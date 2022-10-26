@@ -3,9 +3,9 @@ import React from "react";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-gray-700 flex justify-center items-center">
+    <footer className="w-full bg-gray-700 flex justify-center items-center h-full">
       <main className="lg:w-lg w-full justify-start flex flex-col p-4 items-center">
-        <div className="w-full justify-between flex flex-row items-start">
+        <div className="w-full justify-between flex flex-col lg:flex-row items-start">
           <div className="flex flex-col items-start justify-start space-y-4">
             <p className="font-bold text-2xl text-white border-dashed border-b-2 border-rose-400">
               Contact
@@ -47,14 +47,14 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-end space-y-4">
+          <div className="flex flex-col pt-6 lg:pt-0 items-start lg:items-end space-y-4 duration-300 transition-all">
             <a
               href="https://www.facebook.com/hamictoantin"
               target={"_blank"}
               rel="noreferrer"
               className="text-white text-3xl"
             >
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
             </a>
             <div className="w-80 flex flex-col items-start space-y-1">
               <p className="text-white font-light text-sm">Directions guide</p>

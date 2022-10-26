@@ -13,13 +13,25 @@ export function Login() {
   const [alert, setAlert] = React.useState();
   const [executing, setExecuting] = React.useState(false);
 
+  React.useEffect(() => {
+    document.title = "CHIP CHIP - Login";
+  });
+
   return (
-    <div className="flex flex-row h-screen justify-center items-center">
-      <img src={UndrawWelcome} alt="" srcSet="" className="w-96 mr-8" />
+    <div className="flex flex-row md:py-48 sm:py-32 py-24 justify-center items-center">
+      <img
+        src={UndrawWelcome}
+        alt=""
+        srcSet=""
+        className="w-96 mr-8 lg:block hidden"
+      />
       <div className="flex flex-col justify-center items-center space-y-2">
         <div className="w-96">
           <p className="text-gray-700 text-5xl font-extrabold">Welcome to</p>
-          <p className="text-gray-700 text-3xl font-extrabold">KANJI</p>
+          <p className="text-gray-700 text-3xl font-extrabold">
+            Chip{" "}
+            <span className="text-gray-500 text-xl font-extrabold">Chip</span>
+          </p>
         </div>
         {(() => {
           if (alert) {

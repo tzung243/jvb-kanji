@@ -39,7 +39,7 @@ export const ExamManager = (props) => {
   return (
     <section className="w-full flex justify-center">
       <main className="lg:w-lg w-full flex flex-col justify-center items-center my-4 space-y-12 px-4 py-8">
-        <p className="font-bold text-5xl text-gray-700">Exam Manager</p>
+        <p className="font-bold text-3xl text-gray-700">Exam Manager</p>
         {(() => {
           if (loading) {
             return (
@@ -88,9 +88,9 @@ export const ExamManager = (props) => {
               }
               return (
                 <React.Fragment>
-                  <img src={UndrawSmallTown} alt="" className="w-96" />
+                  <img src={UndrawSmallTown} alt="" className="w-96 mx-4" />
                   <div className="w-full flex flex-col space-y-12 justify-center items-center">
-                    <div className="w-full grid grid-cols-2 gap-2">
+                    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-2 transition-all duration-300">
                       {exams
                         .slice(page * limit, page * limit + limit)
                         .map((exam, index) => {

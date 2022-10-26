@@ -11,8 +11,12 @@ export function Register() {
   const [alert, setAlert] = React.useState();
   const [executing, setExecuting] = React.useState(false);
 
+  React.useEffect(() => {
+    document.title = "CHIP CHIP - Register an account";
+  });
+
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
+    <div className="flex flex-col md:py-48 sm:py-32 py-24 justify-center items-center">
       <div className="flex flex-row space-x-4">
         <form
           className="kanji__form__container"
@@ -113,7 +117,12 @@ export function Register() {
             Create account
           </button>
         </form>
-        <img src={UndrawMyPassword} alt="" srcSet="" className="w-96" />
+        <img
+          src={UndrawMyPassword}
+          alt=""
+          srcSet=""
+          className="w-96 lg:block hidden"
+        />
       </div>
     </div>
   );

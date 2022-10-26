@@ -67,7 +67,7 @@ export function QuickStartExam() {
             src={UndrawReadingTime}
             alt=""
             srcSet=""
-            className="w-96 my-10"
+            className="w-96 my-10 mx-4"
           />
           <h1 className="text-3xl font-bold text-gray-700">Quick Start</h1>
           <p className="text-base font-light text-gray-500 w-96 text-center my-4">
@@ -90,7 +90,7 @@ export function QuickStartExam() {
               );
             }
           })()}
-          <div className="flex flex-row space-x-5">
+          <div className="grid xl:grid-cols-4 grid-cols-2 gap-2 md:grid-cols-3 ">
             <div className="flex flex-col justify-center items-center space-y-5">
               <HomeTypeExamCard type="N2" />
               <input

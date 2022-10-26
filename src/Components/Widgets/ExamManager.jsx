@@ -165,7 +165,7 @@ export function ExamManager() {
               );
             }
           })()}
-          <img src={UndrawStripPayments} alt="" className="w-96" />
+          <img src={UndrawStripPayments} alt="" className="w-96 lg:block hidden" />
         </div>
       </main>
     </section>

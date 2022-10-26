@@ -55,7 +55,7 @@ export const ExamResult = () => {
               <p className="text-gray-700 text-7xl font-extrabold">
                 {`${exam.score}/100`}
               </p>
-              <div className="grid grid-cols-2 gap-x-2 gap-y-4 w-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-4 w-full">
                 {exam.questions.map((answerOfUser, index) => {
                   return (
                     <React.Fragment key={index}>
@@ -68,12 +68,12 @@ export const ExamResult = () => {
                 })}
               </div>
               <button
-                className="px-8 py-4 bg-rose-400 text-white rounded-md font-bold text-xl shadow-md drop-shadow-md hover:ring-4 hover:ring-rose-300 duration-300 transition-all"
-                onClick={() => {
+                className="px-12 py-3 text-center shadow-rose-300 bg-rose-400 text-white rounded-md font-bold text-lg shadow-md drop-shadow-md hover:ring-4 hover:ring-rose-300 duration-300 transition-all tracking-widest"
+                onClick={() => { 
                   navigate("/");
                 }}
               >
-                Go To Home <i className="fa-solid fa-arrow-right"></i>
+                Go <i className="fa-solid fa-house"></i>
               </button>
             </React.Fragment>
           );

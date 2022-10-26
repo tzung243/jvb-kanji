@@ -5,7 +5,7 @@ export function RecoveryPassword() {
   const emailRef = React.useRef();
 
   return (
-    <div className="flex flex-col justify-center items-center space-y-2 h-screen">
+    <div className="flex flex-col justify-center items-center space-y-2  md:py-48 sm:py-32 py-24">
       <img src={UndrawForgotPassword} alt="" srcSet="" className="w-96" />
       <div className="w-96 my-10">
         <p className="text-gray-700 text-3xl font-extrabold">

@@ -10,7 +10,7 @@ export function Question({ question, answer }) {
 
   return (
     <form
-      className="w-[640px] bg-white p-6 shadow-md drop-shadow-sm rounded-md space-y-3 hover:ring-rose-300 hover:ring-4 duration-300 transition-all"
+      className="flex flex-col my-4 lg:my-0 w-96 lg:w-[640px] bg-white p-6 shadow-md drop-shadow-sm rounded-md space-y-3 hover:ring-rose-300 hover:ring-4 duration-300 transition-all"
       onChange={(event) => {
         setExecuting(true);
         window
