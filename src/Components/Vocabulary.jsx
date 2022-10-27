@@ -42,9 +42,9 @@ export const Vocabulary = () => {
 
   return (
     <section className="w-full flex justify-center items-center">
-      <main className="lg:w-lg w-full flex flex-col lg:flex-row justify-center items-center">
+      <main className="lg:w-lg w-full flex flex-col lg:flex-row justify-center items-center pb-0 lg:py-24">
         <img src={UndrawStars} alt="" className="w-96 my-4" />
-        <div className="w-full px-4 py-12 flex flex-row justify-between items-center space-x-2 h-48 lg:h-min">
+        <div className="w-full px-4 py-12 flex flex-row justify-between items-center space-x-2 h-min ">
           <button className="bg-rose-400 hover:ring-4 hover:ring-rose-300 text-white text-center w-8 h-8 rounded-md shadow-sm drop-shadow-sm disabled:bg-gray-400 disabled:hover:ring-gray-300 duration-300 transition-all" disabled={counter <= 0} onClick={() => {
             let _counter = counter - 1
             if (_counter < 0) {
