@@ -113,8 +113,7 @@ export function Header() {
                       <span
                         className="w-full text-start px-4 py-2 text-gray-500 text-sm font-semibold hover:bg-rose-50 duration-300 transition-all"
                         onClick={() => {
-                          window.location.href = "https://flashcard.hamic.org";
-                          // navigate("/vocabulary");
+                          navigate("/vocabulary");
                         }}
                       >
                         Vocabulary
